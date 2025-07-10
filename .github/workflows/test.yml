@@ -74,9 +74,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
       - name: push
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
-          git rm -r --cached .
-          git add dist/index.html dist/index.js dist/index.css
-          git commit -m "feat(dist)"
-          git push origin dev
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: dist
+          force_orphan: true
