@@ -52,4 +52,4 @@ jobs:
           name: Release ${{ steps.tagger.outputs.tag }}
           files: dist/*
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
