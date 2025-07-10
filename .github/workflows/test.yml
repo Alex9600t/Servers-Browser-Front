@@ -71,4 +71,5 @@ jobs:
           npm run build
       - name: push
         run: |
+          find . -mindepth 1 \( -name 'dist' -o -name '.git' \) -prune -o -exec rm -rf {} +
           ls -la
