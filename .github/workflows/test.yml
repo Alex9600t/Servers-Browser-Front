@@ -41,6 +41,7 @@ jobs:
           TAG="auto-$(date +%Y%m%d%H%M%S)"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           git tag $TAG
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
           git push origin $TAG
       - name: Create release
         uses: softprops/action-gh-release@v2
