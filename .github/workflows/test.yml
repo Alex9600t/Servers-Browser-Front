@@ -69,7 +69,14 @@ jobs:
         run: |
           npm i
           npm run build
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
       - name: push
         run: |
-          find . -mindepth 1 \( -name 'dist' -o -name '.git' \) -prune -o -exec rm -rf {} +
-          ls -la
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
+          git rm -r --cached .
+          git add dist/index.html dist/index.js dist/index.css
+          git commit -m "feat(dist)"
+          git push origin dev
