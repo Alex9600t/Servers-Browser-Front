@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,700&display=swap');
+
+.logoGameName {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-shadow: 
+    0 0 200px #ff9500,
+    0 0 20px #ff950080,
+    0 0 5px #ff9500;
+}
+.logoGameCursor {
+    text-shadow: 
+    0 0 200px #ffffff,
+    0 0 20px #ffffff80,
+    0 0 5px #ffffff;
+}
