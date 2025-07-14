@@ -26,12 +26,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          path: .
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with: 
           name: compiled data
           path: dist/
-      - run: ls dist/
       - name: Set up Git
         run: |
           git config user.name "github-actions[bot]"
@@ -60,14 +65,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: Update kernel
-        run: sudo apt-get update && sudo apt-get install -y
-      - name: Download dependencies
-        run: sudo apt install nodejs npm
-      - name: Build
-        run: |
-          npm i
-          npm run build
+          fetch-depth: 1
+          path: .
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with: 
+          name: compiled data
+          path: dist/
       - name: Set up Git
         run: |
           git config user.name "github-actions[bot]"
