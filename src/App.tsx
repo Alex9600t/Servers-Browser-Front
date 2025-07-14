@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from 'react'
 import { DarkSelect, LogoGame } from "./components/components"
-import Markdown from 'react-markdown'
+// import Markdown from 'react-markdown'
 import './App.css'
 import './style/style.css'
 
