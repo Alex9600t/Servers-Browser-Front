@@ -17,6 +17,11 @@ jobs:
         run: |
           npm i
           npm run build
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled data
+          path: dist/
   publish:
     needs: build
     runs-on: ubuntu-latest

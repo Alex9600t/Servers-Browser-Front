@@ -1,5 +1,6 @@
 import { useEffect, useState, type JSX } from 'react'
 import { DarkSelect, LogoGame } from "./components/components"
+import Markdown from 'react-markdown'
 import './App.css'
 import './style/style.css'
 
@@ -59,10 +60,12 @@ function App() {
   return (
     <>
       <div className="content">
-        <div className="head">
-            {logoGames}
-            
-        </div>
+        <header>
+            <div className="head">
+                <h1>Game Servers Database</h1>
+                {logoGames}
+            </div>
+        </header>
         <div className="middle">
             <div className="serverPing">
                 <div className="input">
